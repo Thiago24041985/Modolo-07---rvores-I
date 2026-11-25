@@ -12,8 +12,8 @@ Desenvolvi este projeto em Jupyter Notebook preparando a base de concessão de c
 2. **Construção Automatizada de Metadados:**
    * Criei um DataFrame auxiliar (`info_df`) percorrendo dinamicamente as colunas da base para mapear o nome de cada variável, seu tipo de dado (`dtypes`) e a cardinalidade (`qtd_categorias`, via `len(df[col].unique())`), facilitando a distinção entre variáveis contínuas, binárias e categóricas nominais.
 3. **Codificação de Variáveis Categóricas (*Dummy Variables*):**
-   * Filtrei as variáveis qualitativas e apliquei `pd.get_dummies()` para converter atributos textuais (`sexo`, `posse_de_veiculo`, `posse_de_imovel`, `tipo_renda`, `educacao`, `estado_civil` e `tipo_residencia`) em colunas binárias numéricas.
-   * Consolidei o dataset final compatível com os requisitos de entrada do **Scikit-Learn**.
+   * Identifiquei as variáveis qualitativas e apliquei `pd.get_dummies()` para converter atributos textuais (`sexo`, `posse_de_veiculo`, `posse_de_imovel`, `tipo_renda`, `educacao`, `estado_civil` e `tipo_residencia`) em colunas binárias numéricas.
+   * Separei a matriz contendo apenas os atributos numéricos e codificados, eliminando as colunas originais em formato texto (`str`/`object`) para deixar o dataset pronto para entrada no **Scikit-Learn**.
 
 ## 🛠️ Tecnologias Utilizadas
 * **Python 3**
@@ -23,5 +23,8 @@ Desenvolvi este projeto em Jupyter Notebook preparando a base de concessão de c
 * **Scikit-Learn** (preparação da matriz de atributos para Árvores de Decisão)
 
 
+
+
+TAREFA 02 - 
 
 TAREFA 02 - 

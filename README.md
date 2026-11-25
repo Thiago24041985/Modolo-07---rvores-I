@@ -25,6 +25,30 @@ Desenvolvi este projeto em Jupyter Notebook preparando a base de concessão de c
 
 
 
-TAREFA 02 - 
+TAREFA 02 -  # 🌳 Módulo 07 - Árvores de Decisão e Modelagem de Risco de Crédito
 
-TAREFA 02 - 
+Repositório dedicado aos estudos e projetos práticos do **Módulo 07** do curso **Profissão: Cientista de Dados (EBAC)**, abrangendo o ciclo completo de preparação de dados e modelagem preditiva com **Árvores de Decisão (`DecisionTreeClassifier`)** no **Scikit-Learn** aplicado à concessão de cartões de crédito.
+
+## 💡 Como elaborei este projeto
+
+Estruturei o desenvolvimento em dois notebooks progressivos, conectando o pré-processamento estrutural da base ao treinamento, visualização e avaliação crítica do modelo:
+
+### 1. Pré-processamento e Engenharia de Atributos (`Tarefa 01`)
+* **Auditoria e Diagnóstico de Desbalanceamento:** Carreguei a base `demo01.csv` (**16.650 registros e 16 variáveis**), validei a ausência de missings (`df.isna().sum()`) e identifiquei o forte desbalanceamento da variável alvo (`mau`: **97,66% bons pagadores** vs. **2,34% maus pagadores**).
+* **Construção de Metadados:** Criei um DataFrame dinâmico (`info_df`) mapeando nomes, tipos de dados (`dtypes`) e cardinalidade (`qtd_categorias`) de cada atributo.
+* **Codificação (*One-Hot Encoding*):** Converti as variáveis qualitativas em colunas binárias via `pd.get_dummies()`, removendo as variáveis textuais originais para gerar uma matriz puramente numérica (`variaveis_dummy.csv`) compatível com o **Scikit-Learn**.
+
+### 2. Treinamento, Poda e Avaliação da Árvore de Decisão (`Tarefa 02`)
+* **Separação Treino/Teste:** Dividi a matriz de atributos (`X`) e a variável resposta (`y`) utilizando `train_test_split()`.
+* **Modelagem e Visualização da Árvore:** Treinei um classificador `DecisionTreeClassifier` e gerei a representação gráfica das regras de decisão com `plot_tree()`, avaliando a **Matriz de Confusão** (`ConfusionMatrixDisplay`) com rótulos de negócio (`Aprovados` e `Reprovados`) e a **acurácia** (~97,9% no treino).
+* **Controle de Complexidade (Poda / *Pruning*):** Ajustei hiperparâmetros de regularização (`max_depth=10` e `min_samples_leaf=5`) para evitar *overfitting* e analisei a distribuição das predições na base de teste (onde menos de 1% dos proponentes foram classificados como maus pagadores).
+* **Análise Crítica de Baseline e Desbalanceamento:** Realizei um experimento classificando todos os proponentes como bons pagadores (`False`), demonstrando na prática a limitação da métrica de acurácia isolada (~97,7%) em bases altamente desbalanceadas e a necessidade de métricas complementares ou técnicas de balanceamento.
+
+## 🛠️ Tecnologias Utilizadas
+* **Python 3**
+* **Pandas & NumPy** (auditoria de schema, criação de metadados, `pd.get_dummies` e manipulação de arrays)
+* **Scikit-Learn** (`train_test_split`, `DecisionTreeClassifier`, `plot_tree`, `accuracy_score`, `ConfusionMatrixDisplay`)
+* **Matplotlib & Seaborn** (visualização exploratória e plotagem das árvores e matrizes de confusão)
+* **Jupyter Notebook / Google Colab**
+
+
